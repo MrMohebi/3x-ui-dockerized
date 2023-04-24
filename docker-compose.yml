@@ -1,0 +1,17 @@
+version: '3'
+services:
+  xui3:
+    build:
+      context: .
+    restart: always
+    container_name: 3x-ui
+    environment:
+      - VIRTUAL_HOST=x.site.com
+      - VIRTUAL_PORT=2053
+    ports:
+      - 2053:2053
+      - 8888:8888
+      - 8888:8888/udp
+    volumes:
+      - ./db/:/etc/x-ui/
+      - ./cert/:/root/cert/
